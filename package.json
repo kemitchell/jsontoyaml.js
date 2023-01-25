@@ -1,6 +1,6 @@
 {
   "name": "@kemitchell/yamltojson",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "CLI convert YAML to JSON",
   "bin": "./bin.js",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
