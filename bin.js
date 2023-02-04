@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 const yaml = require('js-yaml')
-function load (buffer) {
-  return yaml.load(buffer, { schema: yaml.JSON_SCHEMA })
-}
 
 let inputStream
 
@@ -22,6 +19,19 @@ inputStream
   })
   .once('end', () => {
     const input = Buffer.concat(chunks)
-    process.stdout.write(JSON.stringify(load(input), null, 2))
+    let parsed
+    try {
+      parsed = JSON.parse(input)
+    } catch (error) {
+      console.error(error)
+      process.exit(1)
+    }
+    process.stdout.write(yaml.dump(parsed, {
+      indent: 2,
+      noArrayIndent: true,
+      lineWidth: -1,
+      noRefs: true,
+      quotingType: "'"
+    }))
     process.stdout.write('\n')
   })

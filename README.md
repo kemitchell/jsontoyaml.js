@@ -1,6 +1,6 @@
-convert YAML to JSON at the command line with js-yaml
+convert JSON to YAML at the command line with js-yaml
 
 ```shell
-yamltojson some/file.yml
-yamltojson < some/file.yml
+jsontoyaml some/file.json
+jsontoyaml < some/file.json
 ```
